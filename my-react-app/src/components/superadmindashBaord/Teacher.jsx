@@ -1,5 +1,31 @@
+import { useNavigate } from "react-router-dom"
+
+import { useEffect, useState } from "react"
+
 export default function Teacher() {
-  const teacher = [
+    const navigate = useNavigate()
+
+    const handleClick = (action)=>{
+        const create =()=>{
+            navigate("/superadmin/teacher/create-teacher")
+        }
+
+        const getteachers =()=>{
+          navigate("/superadmin/teacher/get-allTeachers")
+
+        }
+
+        if(action === "create"){
+          create()
+        }
+        if(action === "getteachers"){
+          getteachers()
+        }
+    }
+
+    
+
+    const teacher = [
     "No. of Teachers",
     "Active Teachers",
     "Inactive Teachers",
@@ -12,6 +38,10 @@ export default function Teacher() {
     "bg-red-500",
     "bg-yellow-500",
   ]
+
+  useEffect(()=>{
+    handleClick()
+  },[])
 
   return (
     <div className="min-h-screen bg-gray-100 p-10">
@@ -33,13 +63,15 @@ export default function Teacher() {
 
       {/* Buttons Section */}
       <div className="mt-12 flex gap-6 justify-start">
-        <button className="bg-indigo-600 text-white py-3 px-8 rounded-xl shadow-md hover:bg-indigo-500 transition">
+        <button onClick={()=>handleClick("create")}   className="bg-indigo-600 text-white py-3 px-8 rounded-xl shadow-md hover:bg-indigo-500 transition">
           Create Teacher
         </button>
-        <button className="bg-gray-800 text-white py-3 px-8 rounded-xl shadow-md hover:bg-gray-700 transition">
+        <button onClick={()=>handleClick("getteachers")} className="bg-gray-800 text-white py-3 px-8 rounded-xl shadow-md hover:bg-gray-700 transition">
           Get All Teachers
         </button>
       </div>
+
+      
 
     </div>
   )

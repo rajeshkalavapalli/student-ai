@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, Router } from "react-router-dom";
 import "./App.css";
 
 import Topbar from "./components/Topbar";
@@ -29,6 +29,8 @@ import EditSchool from "./components/superadmindashBaord/Pages/school/Editschool
 import CreateAdmin from "./components/superadmindashBaord/Pages/adminPages/CreateAdmin";
 import Getalladmin from "./components/superadmindashBaord/Pages/adminPages/GetallAdmin";
 import EditAdmin from "./components/superadmindashBaord/Pages/adminPages/Editadmin";
+import Createteacher from "./components/superadmindashBaord/Pages/teacher/Createteacher";
+import GetallTeachers from "./components/superadmindashBaord/Pages/teacher/GetallTeachers";
 
 function App() {
   return (
@@ -68,7 +70,8 @@ function App() {
           <Route path="/superadmin/admin/create-admin" element={<CreateAdmin/>}/>
           <Route path="/superadmin/admin/get-alladmin" element={<Getalladmin/>}/>
           <Route path="/superadmin/admin/edit-admin/:id" element={<EditAdmin/>}/>
-         
+          <Route path="/superadmin/teacher/create-teacher" element={<Createteacher/>}/>
+         <Route path="/superadmin/teacher/get-allTeachers" element={<GetallTeachers/>}/>
         
         </Route>
 
