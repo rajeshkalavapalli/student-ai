@@ -2,8 +2,6 @@ const mongoose = require("mongoose")
 const TeacherSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        ref: "User",
     }, name: {
         type: String,
         required: true
@@ -14,7 +12,10 @@ const TeacherSchema = new mongoose.Schema({
 
     }, subjects: [String]
     ,
-
+    mobile:{
+        type:String,
+        requied:true
+    },
     assigned_students: [
         {
             type: mongoose.Schema.Types.ObjectId,
@@ -24,7 +25,6 @@ const TeacherSchema = new mongoose.Schema({
         [
             {
                 type: String,
-
             }
         ], performanceScore: {
             type: Number,

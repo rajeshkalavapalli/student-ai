@@ -9,6 +9,7 @@ const srouter = require('./Routes/studentRoutes')
 const droute = require('./Routes/devloperRoutes')
 const scroutes = require('./Routes/SchoolRoutes')
 const aroute = require('./Routes/adminRoutes')
+const troute = require('./Routes/teacherRoute')
 
 app.use(cors())
 app.use(express.json())
@@ -32,6 +33,8 @@ app.use('/api/devloper' , droute)
 app.use('/api/school',scroutes)
 
 app.use('/api/admin',aroute)
+app.use('/api/teacher',troute)
+
 
 app.listen(PORT,()=>{
     console.log(`student server successfully running on Port:${PORT}`);
